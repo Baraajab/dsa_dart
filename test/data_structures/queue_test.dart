@@ -1,5 +1,5 @@
-import 'package:dsa_dart/data_structures/queue/queue.dart';
 import 'package:test/test.dart';
+import 'package:dsa_dart/data_structures/list/queue/queue.dart';
 
 void main() {
   group('Queue Tests', () {
