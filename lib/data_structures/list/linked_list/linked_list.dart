@@ -1,4 +1,3 @@
-/// Node class representing an element in the linked list.
 class Node<T> {
   T data;
   Node<T>? next;
@@ -6,15 +5,12 @@ class Node<T> {
   Node(this.data, [this.next]);
 }
 
-/// A generic singly linked list class.
 class LinkedList<T> {
   Node<T>? head;
   int _length = 0;
 
-  /// Returns the number of elements in the list.
   int get length => _length;
 
-  /// Adds [value] to the end of the list.
   void add(T value) {
     final newNode = Node<T>(value);
 
@@ -31,7 +27,6 @@ class LinkedList<T> {
     _length++;
   }
 
-  /// Inserts [value] at the given [index].
   void insert(int index, T value) {
     if (index < 0 || index > _length) {
       throw RangeError('Index out of bounds: $index');
@@ -54,7 +49,6 @@ class LinkedList<T> {
     _length++;
   }
 
-  /// Removes and returns the element at [index].
   T removeAt(int index) {
     if (index < 0 || index >= _length || head == null) {
       throw RangeError('Index out of bounds: $index');
@@ -83,7 +77,6 @@ class LinkedList<T> {
     return removedValue;
   }
 
-  /// Returns `true` if [value] is found in the list.
   bool contains(T value) {
     Node<T>? current = head;
     while (current != null) {
@@ -95,8 +88,6 @@ class LinkedList<T> {
     return false;
   }
 
-  /// Returns the index of the first occurrence of [value],
-  /// or -1 if not found.
   int indexOf(T value) {
     Node<T>? current = head;
     int index = 0;
@@ -112,13 +103,11 @@ class LinkedList<T> {
     return -1;
   }
 
-  /// Clears the entire list.
   void clear() {
     head = null;
     _length = 0;
   }
 
-  /// Provides read access to element at [index].
   T operator [](int index) {
     if (index < 0 || index >= _length) {
       throw RangeError('Index out of bounds: $index');
@@ -132,7 +121,6 @@ class LinkedList<T> {
     return current!.data;
   }
 
-  /// Provides write access to element at [index].
   void operator []=(int index, T value) {
     if (index < 0 || index >= _length) {
       throw RangeError('Index out of bounds: $index');
@@ -146,18 +134,15 @@ class LinkedList<T> {
     current!.data = value;
   }
 
-  /// Concatenates this list with [other] and returns a new list.
   LinkedList<T> operator +(LinkedList<T> other) {
     final result = LinkedList<T>();
 
-    // Copy elements from this list
     Node<T>? current = head;
     while (current != null) {
       result.add(current.data);
       current = current.next;
     }
 
-    // Copy elements from other list
     current = other.head;
     while (current != null) {
       result.add(current.data);
@@ -167,7 +152,6 @@ class LinkedList<T> {
     return result;
   }
 
-  /// Returns a new list with the first occurrence of [value] removed.
   LinkedList<T> operator -(T value) {
     final result = LinkedList<T>();
 
@@ -176,7 +160,6 @@ class LinkedList<T> {
 
     while (current != null) {
       if (!removed && current.data == value) {
-        // Skip this value (first occurrence only)
         removed = true;
       } else {
         result.add(current.data);
@@ -187,7 +170,6 @@ class LinkedList<T> {
     return result;
   }
 
-  /// Applies the given [action] to each element in the list.
   void forEach(void Function(T) action) {
     Node<T>? current = head;
     while (current != null) {
@@ -196,7 +178,6 @@ class LinkedList<T> {
     }
   }
 
-  /// Returns a new [LinkedList] containing the results of applying [transform] to each element.
   LinkedList<S> map<S>(S Function(T) transform) {
     final result = LinkedList<S>();
     Node<T>? current = head;
@@ -209,7 +190,6 @@ class LinkedList<T> {
     return result;
   }
 
-  /// Returns a new [LinkedList] containing only the elements that satisfy [test].
   LinkedList<T> where(bool Function(T) test) {
     final result = LinkedList<T>();
     Node<T>? current = head;
