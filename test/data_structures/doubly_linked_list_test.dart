@@ -1,5 +1,5 @@
-import 'package:dsa_dart/data_structures/list/doubly_linked_list/doubly_linked_list.dart';
 import 'package:test/test.dart';
+import '../../lib/data_structures/list/doubly_linked_list/doubly_linked_list.dart';
 
 void main() {
   group('DoublyLinkedList Tests', () {

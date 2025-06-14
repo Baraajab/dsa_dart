@@ -1,5 +1,5 @@
-import 'package:dsa_dart/data_structures/list/linked_list/linked_list.dart';
 import 'package:test/test.dart';
+import '../../lib/data_structures/list/linked_list/linked_list.dart';
 
 void main() {
   group('LinkedList Basic Operations', () {
