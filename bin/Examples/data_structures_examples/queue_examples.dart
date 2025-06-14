@@ -1,4 +1,4 @@
-import 'package:dsa_dart/data_structures/queue/queue.dart';
+import 'package:dsa_dart/data_structures/list/queue/queue.dart';
 
 void main() {
   final queue = Queue<String>();
